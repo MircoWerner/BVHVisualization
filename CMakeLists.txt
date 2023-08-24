@@ -21,7 +21,14 @@ set(${CMAKE_PROJECT_NAME}-SRC
         main.cpp
         lib/imgui/imconfig.h lib/imgui/imgui.cpp lib/imgui/imgui.h lib/imgui/imgui_demo.cpp lib/imgui/imgui_draw.cpp lib/imgui/imgui_internal.h lib/imgui/imgui_tables.cpp lib/imgui/imgui_widgets.cpp lib/imgui/imstb_rectpack.h lib/imgui/imstb_textedit.h lib/imgui/imstb_truetype.h lib/imgui/imgui_impl_glfw.h lib/imgui/imgui_impl_glfw.cpp lib/imgui/imgui_impl_opengl3_loader.h lib/imgui/imgui_impl_opengl3.h lib/imgui/imgui_impl_opengl3.cpp
         lib/stb/stb_image.h lib/stb/stb_image_resize.h lib/stb/stb_image_write.h
-        renderengine/shader/AShaderProgram.cpp renderengine/shader/AShaderProgram.h renderengine/shader/ShaderProgram.cpp renderengine/shader/ShaderProgram.h renderengine/utils/IOUtils.cpp renderengine/utils/IOUtils.h renderengine/engine/RenderEngine.cpp renderengine/engine/RenderEngine.h renderengine/engine/IRenderLogic.h renderengine/engine/MouseInput.cpp renderengine/engine/MouseInput.h renderengine/camera/ACamera.cpp renderengine/camera/ACamera.h renderengine/camera/ThirdPersonCamera.cpp renderengine/camera/ThirdPersonCamera.h renderengine/engine/KeyboardInput.cpp renderengine/engine/KeyboardInput.h renderengine/utils/Transformation.cpp renderengine/utils/Transformation.h renderengine/textures/Image.cpp renderengine/textures/Image.h renderengine/textures/Texture.cpp renderengine/textures/Texture.h renderengine/shader/ComputeShaderProgram.cpp renderengine/shader/ComputeShaderProgram.h)
+        renderengine/shader/AShaderProgram.cpp renderengine/shader/AShaderProgram.h renderengine/shader/ShaderProgram.cpp renderengine/shader/ShaderProgram.h renderengine/utils/IOUtils.cpp renderengine/utils/IOUtils.h renderengine/engine/RenderEngine.cpp renderengine/engine/RenderEngine.h renderengine/engine/IRenderLogic.h renderengine/engine/MouseInput.cpp renderengine/engine/MouseInput.h renderengine/camera/ACamera.cpp renderengine/camera/ACamera.h renderengine/camera/ThirdPersonCamera.cpp renderengine/camera/ThirdPersonCamera.h renderengine/engine/KeyboardInput.cpp renderengine/engine/KeyboardInput.h renderengine/utils/Transformation.cpp renderengine/utils/Transformation.h renderengine/textures/Image.cpp renderengine/textures/Image.h renderengine/textures/Texture.cpp renderengine/textures/Texture.h renderengine/shader/ComputeShaderProgram.cpp renderengine/shader/ComputeShaderProgram.h
+        visualizer/BVHVisualizerRenderer.h
+        visualizer/BVHVisualizerRenderer.cpp
+        visualizer/BVHVisualizerRenderLogic.h
+        visualizer/BVHVisualizerRenderLogic.cpp
+        visualizer/AABB.h
+        visualizer/BVH.h
+        visualizer/BVH.cpp)
 
 add_executable(${CMAKE_PROJECT_NAME} WIN32 ${${CMAKE_PROJECT_NAME}-SRC})
 

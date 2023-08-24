@@ -6,6 +6,8 @@
 #include "renderengine/engine/RenderEngine.h"
 #include "renderengine/utils/IOUtils.h"
 
+#include "visualizer/BVHVisualizerRenderLogic.h"
+
 
 int main(int argc, char *argv[]) {
     GLFWwindow *window = RenderEngine::initGL("BVHVisualizer", 1920, 1080);
@@ -14,11 +16,21 @@ int main(int argc, char *argv[]) {
     }
     RenderEngine::initImGui(window);
 
-    IRenderLogic *renderLogic = new SomeRenderLogic();
+    IRenderLogic *renderLogic = new BVHVisualizerRenderLogic();
+
+    for (int i = 1; i < argc; i++) {
+        renderLogic->m_startupParameters.emplace_back(argv[i]);
+    }
 
     auto *renderEngine = new RenderEngine(window, renderLogic);
-    renderEngine->run();
+    try {
+        renderEngine->run();
+    } catch (const std::exception &e) {
+        delete renderEngine;
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
     delete renderEngine;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
