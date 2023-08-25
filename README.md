@@ -46,8 +46,8 @@ left right primitiveIdx aabb_min_x aabb_min_y aabb_min_z aabb_max_x aabb_max_y a
 ## Screenshots
 A screenshot showing an entire BVH of the [Stanford Dragon](http://graphics.stanford.edu/data/3Dscanrep/) model:
 
-![img bvh visualization](https://github.com/MircoWerner/BVHVisualization/tree/main/resources/bvhexample/lbvh_visualization.png?raw=true)
+![img bvh visualization](https://github.com/MircoWerner/BVHVisualization/blob/main/resources/bvhexample/lbvh_visualization.png?raw=true)
 
 Leaf nodes can be visualized with a different color:
 
-![img bvh visualization leafs](https://github.com/MircoWerner/BVHVisualization/tree/main/resources/bvhexample/lbvh_visualization_green.png?raw=true)
+![img bvh visualization leafs](https://github.com/MircoWerner/BVHVisualization/blob/main/resources/bvhexample/lbvh_visualization_green.png?raw=true)
