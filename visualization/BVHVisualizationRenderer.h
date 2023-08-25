@@ -12,7 +12,7 @@
  *
  * @author Mirco Werner
  */
-class BVHVisualizerRenderer {
+class BVHVisualizationRenderer {
 public:
     void init(const std::string &path);
 

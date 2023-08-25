@@ -5,7 +5,7 @@
 #include "../../renderengine/engine/IRenderLogic.h"
 #include "../../renderengine/camera/ThirdPersonCamera.h"
 
-#include "BVHVisualizerRenderer.h"
+#include "BVHVisualizationRenderer.h"
 
 /**
  * Render logic of the program.
@@ -13,7 +13,7 @@
  *
  * @author Mirco Werner
  */
-class BVHVisualizerRenderLogic : public IRenderLogic {
+class BVHVisualizationRenderLogic : public IRenderLogic {
 public:
     void init() override;
 
@@ -31,7 +31,7 @@ public:
 
 private:
     ThirdPersonCamera m_camera;
-    BVHVisualizerRenderer m_renderer;
+    BVHVisualizationRenderer m_renderer;
 
     glm::ivec2 windowSize = glm::ivec2(1920, 1080);
 };

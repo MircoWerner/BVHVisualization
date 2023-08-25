@@ -1,16 +1,16 @@
-#include "BVHVisualizerRenderer.h"
+#include "BVHVisualizationRenderer.h"
 
 #include <random>
 
 #include "../../renderengine/utils/Transformation.h"
 
-void BVHVisualizerRenderer::init(const std::string &path) {
+void BVHVisualizationRenderer::init(const std::string &path) {
     m_bvh.fromCSV(path);
 
     updateBVHVisualization();
 }
 
-void BVHVisualizerRenderer::render(ACamera *camera, int windowWidth, int windowHeight) {
+void BVHVisualizationRenderer::render(ACamera *camera, int windowWidth, int windowHeight) {
     glm::mat4 modelMatrix = Transformation::getModelMatrix(m_position, m_rotation, m_scale);
 
     static const float FOV = glm::radians(90.0f);
@@ -37,19 +37,19 @@ void BVHVisualizerRenderer::render(ACamera *camera, int windowWidth, int windowH
     ShaderProgram::unbind();
 }
 
-void BVHVisualizerRenderer::cleanUp() {
+void BVHVisualizationRenderer::cleanUp() {
     glDeleteBuffers(1, &m_vertexVboId);
     glDeleteBuffers(1, &m_indicesVboId);
     glDeleteVertexArrays(1, &m_vaoId);
     m_shaderProgram.cleanUp();
 }
 
-void BVHVisualizerRenderer::updateBVHVisualization() {
+void BVHVisualizationRenderer::updateBVHVisualization() {
     cleanUp();
 
     m_shaderProgram.init();
-    m_shaderProgram.createVertexShader("../resources/shaders/bvh_visualizer_vertex.glsl");
-    m_shaderProgram.createFragmentShader("../resources/shaders/bvh_visualizer_fragment.glsl");
+    m_shaderProgram.createVertexShader("../resources/shaders/bvh_visualization_vertex.glsl");
+    m_shaderProgram.createFragmentShader("../resources/shaders/bvh_visualization_fragment.glsl");
     m_shaderProgram.link();
     m_shaderProgram.createUniform("MVP");
     ShaderProgram::unbind();

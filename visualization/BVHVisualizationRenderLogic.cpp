@@ -1,18 +1,18 @@
-#include "BVHVisualizerRenderLogic.h"
+#include "BVHVisualizationRenderLogic.h"
 
 #include "../../../lib/imgui/imgui.h"
 #include "../renderengine/utils/IOUtils.h"
 
-void BVHVisualizerRenderLogic::init() {
+void BVHVisualizationRenderLogic::init() {
     if (m_startupParameters.size() != 1) {
-        std::cout << "[Warning] No input path to the BVH csv file as program argument provided. Using the example file instead. Otherwise use: ./BVHVisualizer <pathToBVH.csv>" << std::endl;
+        std::cout << "[Warning] No input path to the BVH csv file as program argument provided. Using the example file instead. Otherwise use: ./BVHVisualization <pathToBVH.csv>" << std::endl;
     }
     m_startupParameters.emplace_back("../resources/bvhexample/lbvh.csv");
 
     m_renderer.init(m_startupParameters[0]);
 }
 
-void BVHVisualizerRenderLogic::update(float time, KeyboardInput *keyboardInput, MouseInput *mouseInput) {
+void BVHVisualizationRenderLogic::update(float time, KeyboardInput *keyboardInput, MouseInput *mouseInput) {
     static const float CAMERA_POS_STEP = 3.f;
     static const float MOUSE_SENSITIVITY = 0.25f;
 
@@ -53,12 +53,12 @@ void BVHVisualizerRenderLogic::update(float time, KeyboardInput *keyboardInput, 
     }
 }
 
-void BVHVisualizerRenderLogic::render() {
+void BVHVisualizationRenderLogic::render() {
     m_renderer.render(&m_camera, windowSize.x, windowSize.y);
 }
 
-void BVHVisualizerRenderLogic::renderGui() {
-    ImGui::Begin("BVHVisualizer");
+void BVHVisualizationRenderLogic::renderGui() {
+    ImGui::Begin("BVHVisualization");
 
     ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
                 ImGui::GetIO().Framerate);
@@ -99,14 +99,14 @@ void BVHVisualizerRenderLogic::renderGui() {
     ImGui::End();
 }
 
-void BVHVisualizerRenderLogic::cleanUp() {
+void BVHVisualizationRenderLogic::cleanUp() {
     m_renderer.cleanUp();
 }
 
-void BVHVisualizerRenderLogic::onWindowResized(int width, int height) {
+void BVHVisualizationRenderLogic::onWindowResized(int width, int height) {
     windowSize = glm::vec2(width, height);
 }
 
-bool BVHVisualizerRenderLogic::generateSceneScreenshot(int number, IRenderLogic::SceneScreenshotInfo *info) {
+bool BVHVisualizationRenderLogic::generateSceneScreenshot(int number, IRenderLogic::SceneScreenshotInfo *info) {
     return false;
 }
